@@ -4,8 +4,8 @@
     "npm": "6.14.4"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "cross-env NODE_ENV=prod node index.js",
+    "dev": "cross-env NODE_ENV=dev nodemon index.js"
   },
   "name": "Feedy",
   "version": "1.0.0",
@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "cookie-session": "^1.4.0",
+    "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "mongoose": "^5.9.22",
     "nodemon": "^2.0.4",
