@@ -5,16 +5,20 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=prod node index.js",
-    "dev": "cross-env NODE_ENV=dev nodemon index.js"
+    "server": "cross-env NODE_ENV=dev nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "name": "Feedy",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^5.2.0",
     "cookie-session": "^1.4.0",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
+    "materialize-css": "^1.0.0",
     "mongoose": "^5.9.22",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
