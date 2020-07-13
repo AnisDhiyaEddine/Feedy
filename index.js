@@ -31,9 +31,7 @@ require("./routes/billing-routes")(app);
 
 if (process.env.NODE_ENV != "development") {
   let path = require("path");
-
   app.use(express.static(path.join(__dirname, "client/build")));
-  let path = require("path");
   app.get("*", (req, res) => {
     res.sendFile(__dirname, path.resolve("client", "build", "index.html"));
   });
