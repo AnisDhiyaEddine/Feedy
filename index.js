@@ -30,7 +30,7 @@ app.use(passport.session());
 require("./routes/auth-routes")(app);
 require("./routes/billing-routes")(app);
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV != "development") {
   app.use(express.static("client/build"));
   let path = require("path");
   app.get("*", (req, res) => {
