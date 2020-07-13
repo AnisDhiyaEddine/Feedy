@@ -30,10 +30,11 @@ require("./routes/auth-routes")(app);
 require("./routes/billing-routes")(app);
 
 if (process.env.NODE_ENV != "development") {
+  app.use(express.static("client/build"));
+
   let path = require("path");
-  app.use(express.static(path.join(__dirname, "client/build")));
   app.get("*", (req, res) => {
-    res.sendFile(__dirname, path.resolve("client", "build", "index.html"));
+    res.sendFile(path.resolve("client", "build", "index.html"));
   });
 }
 
