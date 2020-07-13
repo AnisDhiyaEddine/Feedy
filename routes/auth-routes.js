@@ -1,7 +1,9 @@
 const passport = require("passport");
+let url =
+  process.env.NODE_ENV === "production" ? "https://feddy.herokuapp.com/" : "";
 module.exports = (app) => {
   app.get(
-    "/auth/google",
+    `${url}/auth/google`,
     passport.authenticate("google", {
       scope: ["profile", "email"],
     })
@@ -9,7 +11,7 @@ module.exports = (app) => {
 
   // callback route for google to redirect to
   app.get(
-    "/auth/google/callback",
+    `${url}/auth/google/callback`,
     passport.authenticate("google"),
     (req, res) => {
       res.redirect("/surveys");
