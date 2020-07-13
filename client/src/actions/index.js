@@ -3,17 +3,25 @@ import axios from "axios";
 import { FETCH_USER } from "./types";
 
 export const fetchUser = () => async (dispatch) => {
-  let { data } = await axios.get("/api/current_user");
-  dispatch({
-    type: FETCH_USER,
-    payload: data,
-  });
+  try {
+    let { data } = await axios.get("/api/current_user");
+    dispatch({
+      type: FETCH_USER,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const handleToken = (token) => async (dispatch) => {
-  let { data } = await axios.post("/api/stripe", token);
-  dispatch({
-    type: FETCH_USER,
-    payload: data,
-  });
+  try {
+    let { data } = await axios.post("/api/stripe", token);
+    dispatch({
+      type: FETCH_USER,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
