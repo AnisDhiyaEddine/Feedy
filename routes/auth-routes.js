@@ -3,7 +3,7 @@ let url =
   process.env.NODE_ENV === "production" ? "https://feddy.herokuapp.com/" : "";
 module.exports = (app) => {
   app.get(
-    `${url}/auth/google`,
+    `/auth/google`,
     passport.authenticate("google", {
       scope: ["profile", "email"],
     })
