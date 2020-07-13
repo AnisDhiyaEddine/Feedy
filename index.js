@@ -4,7 +4,6 @@ const keys = require("./config/keys");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
 const bodyParser = require("body-parser");
-let path = require("path");
 require("./models/User");
 require("./services/passport");
 
@@ -31,6 +30,8 @@ require("./routes/auth-routes")(app);
 require("./routes/billing-routes")(app);
 
 if (process.env.NODE_ENV != "development") {
+  let path = require("path");
+
   app.use(express.static(path.join(__dirname, "client/build")));
   let path = require("path");
   app.get("*", (req, res) => {
