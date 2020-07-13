@@ -11,10 +11,10 @@ module.exports = (app) => {
 
   // callback route for google to redirect to
   app.get(
-    `${url}/auth/google/callback`,
+    `/auth/google/callback`,
     passport.authenticate("google"),
     (req, res) => {
-      res.redirect("/surveys");
+      res.redirect("/");
     }
   );
 
