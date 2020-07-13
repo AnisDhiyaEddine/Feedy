@@ -33,5 +33,14 @@ app.get("/", (req, res) => {
 
 require("./routes/auth-routes")(app);
 require("./routes/billing-routes")(app);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  let path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(__dirname, path.resolve("client", "build", "index.html"));
+  });
+}
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT);

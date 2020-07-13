@@ -7,7 +7,8 @@
     "start": "cross-env NODE_ENV=prod node index.js",
     "server": "cross-env NODE_ENV=dev nodemon index.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "heroku-post-build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "name": "Feedy",
   "version": "1.0.0",
