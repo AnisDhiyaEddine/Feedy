@@ -34,7 +34,7 @@ if (process.env.NODE_ENV != "development") {
 
   let path = require("path");
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve("client", "build", "index.html"));
+    res.sendfile(path.resolve("client", "build", "index.html"));
   });
 }
 
