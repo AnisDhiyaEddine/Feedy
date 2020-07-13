@@ -1,14 +1,14 @@
 {
   "engines": {
     "node": "10.19.0",
-    "npm": "6.14.4"
+    "npm": "6.14.6"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
     "server": "cross-env NODE_ENV=development nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false yarn install --cwd client && yarn build --cwd client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "name": "Feedy",
   "version": "1.0.0",
