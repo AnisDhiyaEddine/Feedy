@@ -13,7 +13,7 @@ module.exports = (app) => {
     `/auth/google/callback`,
     passport.authenticate("google"),
     (req, res) => {
-      res.redirect(send("hello and welcome"));
+      res.send("hello and welcome");
     }
   );
 
