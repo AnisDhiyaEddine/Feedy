@@ -8,7 +8,7 @@
     "server": "cross-env NODE_ENV=development nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false yarn install --cwd client && yarn build --cwd client"
   },
   "name": "Feedy",
   "version": "1.0.0",
