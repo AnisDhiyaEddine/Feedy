@@ -29,17 +29,22 @@ class Header extends Component {
   }
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
-          <Link
-            to={this.props.auth ? "/surveys" : "/"}
-            className="left brand-logo"
-          >
-            Feedy
-          </Link>
-          <ul className="right">{this.renderNavContent()}</ul>
-        </div>
-      </nav>
+      <div>
+        <nav>
+          <div className="nav-wrapper">
+            <Link
+              to={this.props.auth ? "/surveys" : "/"}
+              className="left brand-logo"
+            >
+              Feedy
+            </Link>
+
+            <ul className="right hide-on-med-and-down">
+              {this.renderNavContent()}
+            </ul>
+          </div>
+        </nav>
+      </div>
     );
   }
 }
