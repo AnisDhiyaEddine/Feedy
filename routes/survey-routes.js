@@ -9,6 +9,13 @@ const { Path } = require("path-parser");
 const { URL } = require("url");
 const _ = require("lodash");
 module.exports = (app) => {
+  app.get("/api/surveys", async (req, res) => {
+    let surveys = await Survey.find({ _user: req.user.id }).select({
+      recipients: false,
+    });
+    res.send(surveys);
+  });
+
   app.post("/api/surveys", auth, checkCredits, async (req, res) => {
     let { title, body, subject, recipients } = req.body;
     let survey = new Survey({
