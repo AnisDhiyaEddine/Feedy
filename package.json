@@ -7,7 +7,8 @@
     "start": "cross-env NODE_ENV=production nodemon index.js",
     "server": "cross-env NODE_ENV=development nodemon index.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\" \"yarn webhook\"",
+    "webhook": "ngrok http 3000"
   },
   "name": "Feedy",
   "version": "1.0.0",
@@ -19,12 +20,16 @@
     "cookie-session": "^1.4.0",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
+    "lodash": "^4.17.19",
     "materialize-css": "^1.0.0",
     "mongoose": "^5.9.22",
+    "ngrok": "^3.2.7",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-github": "^1.1.0",
     "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^6.1.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^8.69.0"
   }
 }
