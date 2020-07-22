@@ -15,9 +15,6 @@ class Header extends Component {
         );
       default:
         return [
-          <li key="1">
-            <Payments />
-          </li>,
           <li key="3" style={{ margin: "0 10px" }}>
             Credits : {this.props.auth.credits}
           </li>,
@@ -29,7 +26,7 @@ class Header extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <nav>
           <div className="nav-wrapper">
             <Link
@@ -39,9 +36,7 @@ class Header extends Component {
               Feedy
             </Link>
 
-            <ul className="right hide-on-med-and-down">
-              {this.renderNavContent()}
-            </ul>
+            <ul className="right">{this.renderNavContent()}</ul>
           </div>
         </nav>
       </div>
