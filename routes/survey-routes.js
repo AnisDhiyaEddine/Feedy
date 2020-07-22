@@ -43,8 +43,8 @@ module.exports = (app) => {
     }
   });
 
-  app.post("/api/surveys/webhook", (req, res) => {
-    let extractor = new Path("/api/surveys/:surveyID/:choice");
+  app.post("//api/surveys/webhook", (req, res) => {
+    let extractor = new Path("//api/surveys/:surveyID/:choice");
 
     _.chain(req.body)
       .map(({ url, email }) => {
@@ -72,9 +72,5 @@ module.exports = (app) => {
       .value();
 
     res.send({});
-  });
-
-  app.get("/api/surveys/:surveyID/:choice", (req, res) => {
-    res.send("Thanks for voting !!");
   });
 };

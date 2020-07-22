@@ -6,7 +6,7 @@ import * as actions from "../actions";
 import LandingPage from "./Landing";
 import Dashboard from "./Dashoard";
 import SurveyNew from "./surveys/SurveyNew";
-
+import Thanks from "./Thanks";
 class App extends React.Component {
   componentDidMount() {
     this.props.fetchUser();
@@ -20,6 +20,7 @@ class App extends React.Component {
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
+            <Route path="/surveys/:id/:choice" component={Thanks} />
           </div>
         </BrowserRouter>
       </div>
