@@ -45,7 +45,6 @@ module.exports = (app) => {
 
   app.post("/api/surveys/webhook", (req, res) => {
     let extractor = new Path("/api/surveys/:surveyID/:choice");
-
     _.chain(req.body)
       .map(({ url, email }) => {
         let match = extractor.test(new URL(url).pathname);
